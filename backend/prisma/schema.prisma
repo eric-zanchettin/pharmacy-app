@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Pharmacy {
+  id          Int    @id @default(autoincrement())
+  logo        String @db.VarChar(500)
+  name        String @db.VarChar(200)
+  cnpj        String @db.Char(14)
+  address     String @db.VarChar(500)
+  hours_open  Int    @db.Int()
+  responsible String @db.VarChar(200)
+  phone       String @db.VarChar(11)
+  others      String @db.VarChar(200)
+  main        PharmacyFilials[] @relation("main_pharmacies")
+  filial      PharmacyFilials[] @relation("filial_pharmacies")
+}
+
+model Products {
+  id            Int     @id @default(autoincrement())
+  thumbnail     String  @db.VarChar(500)
+  price         Decimal @db.Decimal(8,2)
+  ingredients   String  @db.VarChar(500)
+  disponibility Boolean @db.Bit(1)
+  volume        Int     @db.Int()
+  others        String  @db.VarChar(200)
+}
+
+model PharmacyFilials {
+    id              Int      @id @default(autoincrement())
+    main_pharmacy   Int      @db.Int()
+    filial_pharmacy Int      @db.Int()
+    main            Pharmacy @relation("main_pharmacies", fields: [main_pharmacy], references: [id])
+    filial          Pharmacy @relation("filial_pharmacies", fields: [filial_pharmacy], references: [id])
+}
