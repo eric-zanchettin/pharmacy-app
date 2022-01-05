@@ -11,8 +11,6 @@ export default class PharmacyController {
         try {
             const pharmacyList = await PharmacyDB.getAllPharmacies();
 
-            if (pharmacyList.length <= 0) throw new Error("Não há farmácias Registradas no Banco de Dados!");
-
             return res.json(pharmacyList);
         } catch (err) {
             return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` })
