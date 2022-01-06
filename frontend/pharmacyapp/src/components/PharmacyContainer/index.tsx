@@ -1,7 +1,4 @@
-import { useEffect, useState, } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../../services/api';
-import { phoneFormatter } from '../../lib/formatters';
 
 import { IoLocationSharp, IoCall, } from 'react-icons/io5';
 import { PharmacyContainer, PharmacyCard } from './styles';
@@ -14,27 +11,15 @@ interface PharmacyModel {
     phone: string;
 };
 
-export function PharmacyCards() {
-    const [pharmacies, setPharmacies] = useState<PharmacyModel[]>([]);
+interface PharmacyCardsProps {
+    pharmaciesData: PharmacyModel[]
+}
 
-    useEffect(() => {
-        api.get('/pharmacy/')
-            .then(response => {
-                const data = response.data.map((pharmacy: PharmacyModel) => {
-                    return {
-                        ...pharmacy,
-                        phone: phoneFormatter(pharmacy.phone)
-                    }
-                });
-
-                setPharmacies(data);
-            });
-    }, []);
-
+export function PharmacyCards({ pharmaciesData }: PharmacyCardsProps ) {
     return (
         <>
             <PharmacyContainer>
-                {pharmacies.map(pharmacy => {
+                {pharmaciesData.map(pharmacy => {
                     return (
                         <Link key={pharmacy.id} to={`/pharmacy/${pharmacy.id}`}>
                             <PharmacyCard>

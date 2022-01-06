@@ -8,7 +8,8 @@ const pharmacy = new PharmacyController();
 
 routePharmacy.get('/pharmacy/', pharmacy.getPharmacies);
 routePharmacy.get('/pharmacy/:pharmacyId', pharmacy.getPharmacy);
+routePharmacy.get('/pharmacyFilials/', pharmacy.getFilialsByPharmacyId);
+routePharmacy.get('/searchPharmacy/', pharmacy.searchPharmacyByName);
 routePharmacy.post('/pharmacy/', genericsValidator.emptyDataValidator, pharmacy.registerPharmacy);
 routePharmacy.put('/pharmacy/', genericsValidator.emptyDataValidator, pharmacy.updatePharmacy);
 routePharmacy.delete('/pharmacy/:pharmacyId', pharmacy.deletePharmacy);
-routePharmacy.get('/pharmacyFilials/', pharmacy.getFilialsByPharmacyId);

@@ -9,7 +9,7 @@ export const Container = styled.div`
         margin: 2rem 0;
         width: 300px;
         
-        object-fit: contain;
+        object-fit: cover;
     }
 
     h1 {
@@ -19,7 +19,7 @@ export const Container = styled.div`
         text-align: center;
         color: #bf0000;
     }
-
+    
     a {
         font-weight: bolder;
 

@@ -166,4 +166,19 @@ export const PharmacyDB = {
             prisma.$disconnect();
         }
     },
+    getPharmacyByName: async (pharmacyName: string): Promise<PharmacyModel[]> => {
+        try {
+            const results = await prisma.pharmacy.findMany({
+                where: {
+                    name: {
+                        contains: pharmacyName,
+                    },
+                },
+            });
+
+            return results;
+        } finally {
+            prisma.$disconnect();
+        };
+    },
 };

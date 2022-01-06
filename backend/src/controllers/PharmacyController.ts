@@ -93,4 +93,16 @@ export default class PharmacyController {
             return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` });
         };
     };
+
+    async searchPharmacyByName(req: Request, res: Response) {
+        try {
+            let { pharmacyName } = req.query;
+
+            const searchedPharmacy = await PharmacyDB.getPharmacyByName(String(pharmacyName));
+
+            return res.json(searchedPharmacy);
+        } catch (err) {
+            return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` });
+        }
+    };
 };
