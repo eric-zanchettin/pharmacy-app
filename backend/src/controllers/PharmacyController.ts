@@ -81,4 +81,16 @@ export default class PharmacyController {
             return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` })
         };
     };
+
+    async getFilialsByPharmacyId(req: Request, res: Response) {
+        try {
+            let { mainPharmacyId } = req.query;
+
+            const filialsInfo = await PharmacyDB.getRelatedFilials(Number(mainPharmacyId));
+
+            return res.json(filialsInfo)
+        } catch (err) {
+            return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` });
+        };
+    };
 };

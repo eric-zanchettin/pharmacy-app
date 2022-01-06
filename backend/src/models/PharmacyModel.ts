@@ -3,6 +3,19 @@ const prisma = new PrismaClient();
 
 type PharmacyModel = Omit<Pharmacy, "id">
 
+interface FilialInfo {
+    id: number;
+    logo: string;
+    name: string;
+    address: string;
+    phone: string;
+};
+
+interface PharmacyFilialsInfo {
+    main_pharmacy: number;
+    filial: FilialInfo;
+}
+
 export const PharmacyDB = {
     getAllPharmacies: async (): Promise<Pharmacy[]> => {
         try {
@@ -128,5 +141,31 @@ export const PharmacyDB = {
         } finally {
             prisma.$disconnect();
         };
+    },
+
+    getRelatedFilials: async (mainPharmacyId: number): Promise<PharmacyFilialsInfo[]> => {
+        try {
+            const results = await prisma.pharmacyFilials.findMany({
+                select: {
+                    main_pharmacy: true,
+                    filial: {
+                        select: {
+                            id: true,
+                            logo: true,
+                            name: true,
+                            address: true,
+                            phone: true,
+                        },
+                    },
+                },
+                where: {
+                    main_pharmacy: mainPharmacyId,
+                },
+            });
+
+            return results;
+        } finally {
+            prisma.$disconnect();
+        }
     },
 };

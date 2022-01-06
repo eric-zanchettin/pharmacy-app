@@ -11,3 +11,4 @@ routePharmacy.get('/pharmacy/:pharmacyId', pharmacy.getPharmacy);
 routePharmacy.post('/pharmacy/', genericsValidator.emptyDataValidator, pharmacy.registerPharmacy);
 routePharmacy.put('/pharmacy/', genericsValidator.emptyDataValidator, pharmacy.updatePharmacy);
 routePharmacy.delete('/pharmacy/:pharmacyId', pharmacy.deletePharmacy);
+routePharmacy.get('/pharmacyFilials/', pharmacy.getFilialsByPharmacyId);
