@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { phoneFormatter } from '../../lib/formatters';
 
-import { PharmacyCards } from '../../components/PharmacyContainer';
+import { PharmacyCards } from '../../components/PharmacyCards';
 import { SearchInput } from '../../components/Search';
 
 interface PharmacyModel {
