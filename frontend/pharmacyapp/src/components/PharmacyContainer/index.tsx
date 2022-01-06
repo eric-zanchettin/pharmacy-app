@@ -10,12 +10,8 @@ interface PharmacyModel {
     id: number;
     logo: string;
     name: string;
-    cnpj: string;
     address: string;
-    hours_open: number;
-    responsible: string;
     phone: string;
-    other: string;
 };
 
 export function PharmacyCards() {
@@ -40,10 +36,10 @@ export function PharmacyCards() {
             <PharmacyContainer>
                 {pharmacies.map(pharmacy => {
                     return (
-                        <Link to={`/pharmacy/${pharmacy.id}`}>
+                        <Link key={pharmacy.id} to={`/pharmacy/${pharmacy.id}`}>
                             <PharmacyCard>
                                 <img src={`/images/${pharmacy.logo}`} alt={`Logo de ${pharmacy.name}`} />
-                                <h1 key={pharmacy.id}>{pharmacy.name}</h1>
+                                <h1>{pharmacy.name}</h1>
                                 <div>
                                     <p><IoLocationSharp /> {pharmacy.address}</p>
                                     <p><IoCall /> {pharmacy.phone}</p>

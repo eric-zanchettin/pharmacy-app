@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 export const PharmacyContainer = styled.div`
     display: grid;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
 export const PharmacyCard = styled.div`
     margin: 1rem;
-    max-width: 450px;
-    max-height: 500px;
 
     background: #FFF;
     border-radius: 20px;
@@ -25,6 +24,8 @@ export const PharmacyCard = styled.div`
 
     img {
         max-width: 100%;
+        min-height: 340px;
+        object-fit: cover;
 
         border-radius: 20px 20px 0 0;
     }

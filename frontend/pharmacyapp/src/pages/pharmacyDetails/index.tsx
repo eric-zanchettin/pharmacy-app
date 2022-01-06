@@ -1,9 +1,8 @@
-import { useParams } from 'react-router-dom';
+import { PharmacyPage } from '../../components/PharmacyPage';
 
 export function PharmacyDetails() {
-    let { pharmacyId } = useParams();
 
     return (
-        <h1>{pharmacyId}</h1>
+        <PharmacyPage />
     );
 };
