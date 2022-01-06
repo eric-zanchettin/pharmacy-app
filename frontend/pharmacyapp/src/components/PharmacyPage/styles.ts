@@ -33,35 +33,4 @@ export const PageContainer = styled.div`
             font-size: 1.2rem;
         }
     }
-
-    .pharmacy-not-found {
-        margin: 10% auto;
-
-        text-align: center;
-        
-        img {
-            margin: 2rem 0;
-            width: 300px;
-            
-            object-fit: contain;
-        }
-        
-        h1 {
-            margin-bottom: 1rem;
-
-            font-size: 3rem;
-            text-align: center;
-            color: red;
-        }
-
-        a {
-            font-weight: bolder;
-
-            transition: 0.5s;
-
-            &:hover {
-                color: blue;
-            }
-        }
-    }
 `;

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
+import { PharmacyNotFound } from '../PharmacyNotFound';
+
 import { phoneFormatter, cnpjFormatter } from '../../lib/formatters';
 
-import { IoLocationSharp, IoCall, IoPerson, IoTime, IoCard, IoArrowBack } from "react-icons/io5";
+import { IoLocationSharp, IoCall, IoPerson, IoTime, IoCard } from "react-icons/io5";
 import { IoIosMore } from "react-icons/io";
-import pharmacyNotFoundImg from '../../assets/pharmacy-not-found.png';
 import { PageContainer } from './styles';
+import { FilialsCards } from '../FilialsCard';
 
 interface PharmacyModel {
     id: number;
@@ -59,13 +61,10 @@ export function PharmacyPage() {
                         </div>
                     </div>
                     <h1>Filiais</h1>
+                    <FilialsCards mainPharmacyId={pharmacyData?.id} />
                 </>
             :
-                <div className="pharmacy-not-found">
-                    <img src={pharmacyNotFoundImg} alt="Pílulas Quebradas representando Falha" />
-                    <h1>Ops! Farmácia não Encontrada...</h1>
-                    <Link to="/"><IoArrowBack /> Voltar à Navegação</Link>
-                </div>
+                <PharmacyNotFound />
             }
         </PageContainer>
     );

@@ -7,7 +7,6 @@ interface FilialInfo {
     id: number;
     logo: string;
     name: string;
-    address: string;
     phone: string;
 };
 
@@ -153,7 +152,6 @@ export const PharmacyDB = {
                             id: true,
                             logo: true,
                             name: true,
-                            address: true,
                             phone: true,
                         },
                     },
