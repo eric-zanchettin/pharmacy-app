@@ -32,7 +32,7 @@ export function PharmacyPage() {
             const data = {
                 ...response.data,
                 cnpj: cnpjFormatter(response.data.cnpj),
-                phone: phoneFormatter(response.data.phone),
+                phone: phoneFormatter(response.data.phone, true),
             };
 
             setPharmacyData(data);

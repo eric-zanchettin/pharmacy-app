@@ -22,7 +22,7 @@ export function Home() {
                 const data = response.data.map((pharmacy: PharmacyModel) => {
                     return {
                         ...pharmacy,
-                        phone: phoneFormatter(pharmacy.phone)
+                        phone: phoneFormatter(pharmacy.phone, true)
                     }
                 });
 

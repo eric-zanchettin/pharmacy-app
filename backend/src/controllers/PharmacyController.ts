@@ -43,7 +43,7 @@ export default class PharmacyController {
                 };
             };
 
-            return res.json({ message: "Farmácia registrada com Sucesso!" });
+            return res.json({ message: "Farmácia registrada com Sucesso!", id: pharmacyData.id });
         } catch (err) {
             return res.status(500).json({ message: `Um erro ocorreu ao realizar sua Solicitação. ${err}` })
         };

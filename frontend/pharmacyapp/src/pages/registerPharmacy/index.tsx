@@ -1,5 +1,7 @@
+import { NewPharmacy } from "../../components/NewPharmacy";
+
 export function RegisterPharmacy() {
     return (
-        <h1>Hello World!</h1> 
+        <NewPharmacy />
     );
 };

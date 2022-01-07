@@ -35,7 +35,7 @@ export function FilialsCards({ mainPharmacyId }: FilialsCardsProps) {
                         ...filialInfo,
                         filial: {
                             ...filialInfo.filial,
-                            phone: phoneFormatter(filialInfo.filial.phone),
+                            phone: phoneFormatter(filialInfo.filial.phone, true),
                         },
                     };
                 });

@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Varela Round', sans-serif;
         font-weight: 400;
 
         button {
